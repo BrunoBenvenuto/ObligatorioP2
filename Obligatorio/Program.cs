@@ -49,9 +49,10 @@ namespace Obligatorio
         static void MostrarClientes()
         {
             Sistema sistema = Sistema.Instancia;
-            foreach (Cliente unCliente in sistema.Clientes)
+            foreach (Usuario unUsuario in sistema.ObtenerClientes())
             {
-                Console.WriteLine($"{unCliente.Nombre} {unCliente.Apellido}");
+                Console.WriteLine($"{unUsuario.Nombre} {unUsuario.Apellido}");
+                Console.WriteLine("----------------------------");
             }
             Console.ReadLine();
         }

@@ -12,9 +12,7 @@ namespace LogicaNegocio
         private static Sistema _instancia;
 
         /*Atributos*/
-        //private List<Usuario> _usuarios = new List<Usuario>();
-        private List<Cliente> _clientes = new List<Cliente>();
-        private List<Administrador> _administradores = new List<Administrador>();
+        private List<Usuario> _usuarios = new List<Usuario>();
         private List<Articulo> _articulos = new List<Articulo>();
         //private List<Publicacion> _publicaciones = new List<Publicacion>();
 
@@ -30,8 +28,7 @@ namespace LogicaNegocio
             }
         }
 
-        public List<Cliente> Clientes { get { return _clientes; } }
-        public List<Administrador> Administradores { get { return _administradores; } }
+        public List<Usuario> Usuarios { get { return _usuarios; } }
         public List<Articulo> Articulos { get {  return _articulos; } }
         //public List<Publicacion> Publicaciones { get {  return _publicaciones; } }
 
@@ -51,8 +48,8 @@ namespace LogicaNegocio
         {
             Cliente cliente1 = new Cliente("Bruno", "Benvenuto", "brunob@test.com", "1234bruno", 123);
             Cliente cliente2 = new Cliente("Agustina", "Istebot", "agu@test.com", "1234agu", 1234);
-            this.AgregarUsuario(cliente1);
-            this.AgregarUsuario(cliente2);
+            this.AgregarCliente(cliente1);
+            this.AgregarCliente(cliente2);
         }
 
                     /*Precarga Administradores*/
@@ -63,12 +60,12 @@ namespace LogicaNegocio
         }
 
                     /*Metodos para clientes*/
-        public void AgregarUsuario(Cliente unCliente)
+        public void AgregarCliente(Cliente unCliente)
         {
             try
             {
                 this.ExisteCliente(unCliente);
-                this._clientes.Add(unCliente);
+                this._usuarios.Add(unCliente);
             }
             catch (Exception e) 
             {
@@ -78,9 +75,9 @@ namespace LogicaNegocio
 
         public void ExisteCliente(Cliente otroCliente)
         {
-            if (this._clientes.Contains(otroCliente))
+            if (this._usuarios.Contains(otroCliente))
             {
-                throw new Exception("El cliente ya existe.");
+                throw new Exception("El usuario ya existe.");
             }
         }
 
@@ -90,7 +87,7 @@ namespace LogicaNegocio
             try
             {
                 this.ExisteAdmin(unAdmin);
-                this._administradores.Add(unAdmin);
+                this._usuarios.Add(unAdmin);
             }
             catch (Exception e)
             {
@@ -100,10 +97,24 @@ namespace LogicaNegocio
 
         public void ExisteAdmin(Administrador otroAdmin)
         {
-            if (this._administradores.Contains(otroAdmin))
+            if (this._usuarios.Contains(otroAdmin))
             {
-                throw new Exception("El administrador ya existe.");
+                throw new Exception("El usuario ya existe.");
             }
+        }
+
+                    /*Lista de Clientes*/
+        public List<Usuario> ObtenerClientes()
+        {
+            List<Usuario> aRetornar = new List<Usuario>();
+            foreach(Usuario u in this._usuarios)
+            {
+                if(u is Cliente)
+                {
+                    aRetornar.Add(u);
+                }
+            }
+            return aRetornar;   
         }
     }
 }
