@@ -41,7 +41,6 @@ namespace Obligatorio
                         Console.Clear();
                         Console.WriteLine("Opción inválida. Presione enter para volver al menu.");
                         Console.ReadLine();
-                        Console.Write("hola");
                         break;
                 }
             }
