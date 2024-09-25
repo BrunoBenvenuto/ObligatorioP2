@@ -8,6 +8,7 @@ namespace Obligatorio
     {
         static void Main(string[] args)
         {
+            Sistema sistema = Sistema.Instancia;
             string seleccion = "";
             while (seleccion != "0")
             {
@@ -31,7 +32,38 @@ namespace Obligatorio
                         break;
                     case "3":
                         Console.Clear();
-                        Console.WriteLine("Alta de Articulo");
+                        Console.WriteLine("Alta de Articulo: ");
+                        bool seIngreso = false;
+                        while (!seIngreso)
+                        {
+                            try
+                            {
+                                Articulo articulo = new Articulo();
+                                Console.WriteLine("Ingrese el nombre: ");
+                                string nombre = Console.ReadLine();
+                                //Articulo.ValidarNombre(nombre);
+                                articulo.Nombre = nombre;
+                                Console.WriteLine("Ingrese la categoria: ");
+                                string categoria = Console.ReadLine();
+                                //Articulo.ValidarCategoria(categoria);
+                                articulo.Categoria = categoria;
+                                Console.WriteLine("Ingrese el precio: ");
+                                decimal precioArticulo = decimal.Parse(Console.ReadLine());
+                                //Articulo.ValidarPrecio(precioArticulo);
+                                articulo.PrecioArticulo = precioArticulo;
+
+                                sistema.AgregarArticulo(articulo);
+                                seIngreso = true;
+                                Console.Clear();
+                                Console.WriteLine("Se ingresó el artículo: \n" + articulo);
+                                Console.WriteLine("Presione enter para volver al menu.");
+                                Console.ReadLine();
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                        }
                         break;
                     case "4":
                         Console.Clear();

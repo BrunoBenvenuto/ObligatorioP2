@@ -41,6 +41,7 @@ namespace LogicaNegocio
         {
             this.PrecargarClientes();
             this.PrecargarAdministradores();
+            this.PrecargarArticulos();
         }
 
         /*------------------------Precarga Usuarios------------------------*/
@@ -66,6 +67,8 @@ namespace LogicaNegocio
             Articulo articulo2 = new Articulo("Cuaderno", "Papeleria", 300);
             Articulo articulo3 = new Articulo("Pintura Roja", "Pintura", 50);
             this.AgregarArticulo(articulo1);
+            this.AgregarArticulo(articulo2);
+            this.AgregarArticulo(articulo3);
         }
 
         /*------------------------Metodos para clientes------------------------*/
@@ -125,8 +128,6 @@ namespace LogicaNegocio
             }
             return aRetornar;   
         }
-
-        //Hola
 
         /*------------------------Metodo para Articulos------------------------*/
 

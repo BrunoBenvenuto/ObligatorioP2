@@ -54,5 +54,14 @@ namespace LogicaNegocio
             this._categoria = unaCategoria;
             this._precioArticulo = unPrecioArticulo;
         }
+
+        /*----------------------- Metodo ToString ----------------------*/
+        public override string ToString()
+        {
+            return " - Id: " + this.Id +
+                "\n - Nombre: " + this.Nombre +
+                "\n - Categoria: " + this.Categoria +
+                "\n - Precio: " + this.PrecioArticulo;
+        }
     }
 }
