@@ -14,7 +14,7 @@ namespace LogicaNegocio
         /*Atributos*/
         private List<Usuario> _usuarios = new List<Usuario>();
         private List<Articulo> _articulos = new List<Articulo>();
-        //private List<Publicacion> _publicaciones = new List<Publicacion>();
+        private List<Publicacion> _publicaciones = new List<Publicacion>();
 
         public static Sistema Instancia
         {
@@ -30,7 +30,7 @@ namespace LogicaNegocio
 
         public List<Usuario> Usuarios { get { return _usuarios; } }
         public List<Articulo> Articulos { get {  return _articulos; } }
-        //public List<Publicacion> Publicaciones { get {  return _publicaciones; } }
+        public List<Publicacion> Publicaciones { get {  return _publicaciones; } }
 
         private Sistema()
         {
@@ -58,6 +58,7 @@ namespace LogicaNegocio
             Administrador administrador1 = new Administrador("Jose", "Rodriguez", "jose@test.com", "1234jose");
             this.AgregarAdmin(administrador1);
         }
+
 
                     /*Metodos para clientes*/
         public void AgregarCliente(Cliente unCliente)
