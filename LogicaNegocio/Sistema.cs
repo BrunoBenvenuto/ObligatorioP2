@@ -43,7 +43,7 @@ namespace LogicaNegocio
             this.PrecargarAdministradores();
         }
 
-                    /*Precarga Usuarios*/
+        /*------------------------Precarga Usuarios------------------------*/
         private void PrecargarClientes()
         {
             Cliente cliente1 = new Cliente("Bruno", "Benvenuto", "brunob@test.com", "1234bruno", 123);
@@ -52,15 +52,23 @@ namespace LogicaNegocio
             this.AgregarCliente(cliente2);
         }
 
-                    /*Precarga Administradores*/
+        /*------------------------Precarga Administradores------------------------*/
         private void PrecargarAdministradores()
         {
             Administrador administrador1 = new Administrador("Jose", "Rodriguez", "jose@test.com", "1234jose");
             this.AgregarAdmin(administrador1);
         }
 
+        /*------------------------Precarga Articulos------------------------*/
+        private void PrecargarArticulos()
+        {
+            Articulo articulo1 = new Articulo("Caja", "Papeleria", 200);
+            Articulo articulo2 = new Articulo("Cuaderno", "Papeleria", 300);
+            Articulo articulo3 = new Articulo("Pintura Roja", "Pintura", 50);
+            this.AgregarArticulo(articulo1);
+        }
 
-                    /*Metodos para clientes*/
+        /*------------------------Metodos para clientes------------------------*/
         public void AgregarCliente(Cliente unCliente)
         {
             try
@@ -82,7 +90,7 @@ namespace LogicaNegocio
             }
         }
 
-                    /*Metodos para administradores*/
+        /*------------------------Metodos para administradores------------------------*/
         public void AgregarAdmin(Administrador unAdmin)
         {
             try
@@ -104,7 +112,7 @@ namespace LogicaNegocio
             }
         }
 
-                    /*Lista de Clientes*/
+        /*------------------------Lista de Clientes------------------------*/
         public List<Usuario> ObtenerClientes()
         {
             List<Usuario> aRetornar = new List<Usuario>();
@@ -116,6 +124,23 @@ namespace LogicaNegocio
                 }
             }
             return aRetornar;   
+        }
+
+        //Hola
+
+        /*------------------------Metodo para Articulos------------------------*/
+
+        public void AgregarArticulo(Articulo unArticulo)
+        {
+            try
+            {
+                this._articulos.Add(unArticulo);
+                //NOTA NO SE OLVIDEN DE VALIDAR ALGO
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }
