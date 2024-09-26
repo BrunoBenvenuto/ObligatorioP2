@@ -66,9 +66,17 @@ namespace LogicaNegocio
             Articulo articulo1 = new Articulo("Caja", "Papeleria", 200);
             Articulo articulo2 = new Articulo("Cuaderno", "Papeleria", 300);
             Articulo articulo3 = new Articulo("Pintura Roja", "Pintura", 50);
+            Articulo articulo4 = new Articulo("Caramelo", "Golosina", 3);
+            Articulo articulo5 = new Articulo("Alfajor", "Golosina", 50);
+            Articulo articulo6 = new Articulo("Caramelo de Miel", "Golosina", 4);
+            Articulo articulo7 = new Articulo("Alfajor Juanito", "Golosina", 70);
             this.AgregarArticulo(articulo1);
             this.AgregarArticulo(articulo2);
             this.AgregarArticulo(articulo3);
+            this.AgregarArticulo(articulo4);
+            this.AgregarArticulo(articulo5);
+            this.AgregarArticulo(articulo6);
+            this.AgregarArticulo(articulo7);
         }
 
         /*------------------------Metodos para clientes------------------------*/
@@ -142,6 +150,19 @@ namespace LogicaNegocio
             {
                 throw new Exception(e.Message);
             }
+        }
+
+        public List<Articulo> BuscarArticulosPorCategoria(string unaCategoria) {
+            List<Articulo> aRetornar = new List<Articulo>();
+            foreach (Articulo unArticulo in this.Articulos)
+            {
+                if (unArticulo.Categoria == unaCategoria)
+                {
+                    aRetornar.Add(unArticulo);
+                }
+            }
+            if (aRetornar.Count == 0) throw new Exception("No existen publicaciones con ese genero");
+            return aRetornar;
         }
     }
 }

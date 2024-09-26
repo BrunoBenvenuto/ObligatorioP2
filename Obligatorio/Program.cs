@@ -29,6 +29,7 @@ namespace Obligatorio
                     case "2":
                         Console.Clear();
                         Console.WriteLine("Dado un nombre de categoría listar todos los artículos de esa categoría");
+                        MostrarCategorias();
                         break;
                     case "3":
                         Console.Clear();
@@ -97,6 +98,42 @@ namespace Obligatorio
             Console.WriteLine("3 - Alta de artículo");
             Console.WriteLine("4 - Publicaciones existentes en fechas especificas");
             Console.WriteLine("0 - Salir");
+        }
+
+        static void MostrarCategorias()
+        {
+            Sistema sistema = Sistema.Instancia;
+            List<string> categoriasUnicas = new List<string>();
+
+            Console.WriteLine("Lista de Categorias:");
+            foreach (Articulo unArticulo in sistema.Articulos)
+            {
+                if (!categoriasUnicas.Contains(unArticulo.Categoria))
+                {
+                    categoriasUnicas.Add(unArticulo.Categoria);
+                    Console.WriteLine("- " + unArticulo.Categoria);
+                }
+            }
+
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("Escriba el nombre de la categoria que desea filtrar:");
+            string categiruaABuscar = Console.ReadLine();
+            Console.WriteLine("---------------------------------\n\nResultado de la busqueda:\n");
+
+            try {
+                foreach (Articulo unArticulo in sistema.BuscarArticulosPorCategoria(categiruaABuscar))
+                {
+                    Console.WriteLine(unArticulo);
+                    Console.WriteLine("----------------------");
+                }
+                Console.WriteLine("\n\nPreciona cualquier tecla para volver al menu");
+                Console.ReadLine();
+            } 
+            catch (Exception e) {
+                Console.WriteLine("Error Categoria invalida... Presione cualquier letra para volver al menu");
+                Console.ReadLine();
+            }
+            
         }
     }
 }
