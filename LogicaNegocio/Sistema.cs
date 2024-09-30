@@ -156,7 +156,7 @@ namespace LogicaNegocio
             List<Articulo> aRetornar = new List<Articulo>();
             foreach (Articulo unArticulo in this.Articulos)
             {
-                if (unArticulo.Categoria == unaCategoria)
+                if (unArticulo.Categoria.ToLower() == unaCategoria.ToLower())
                 {
                     aRetornar.Add(unArticulo);
                 }

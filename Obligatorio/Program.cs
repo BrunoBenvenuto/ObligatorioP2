@@ -118,7 +118,8 @@ namespace Obligatorio
             Console.WriteLine("---------------------------------");
             Console.WriteLine("Escriba el nombre de la categoria que desea filtrar:");
             string categiruaABuscar = Console.ReadLine();
-            Console.WriteLine("---------------------------------\n\nResultado de la busqueda:\n");
+            Console.Clear();
+            Console.WriteLine("Resultado de la busqueda: " + categiruaABuscar + "\n");
 
             try {
                 foreach (Articulo unArticulo in sistema.BuscarArticulosPorCategoria(categiruaABuscar))
