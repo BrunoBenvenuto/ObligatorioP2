@@ -19,11 +19,11 @@ namespace Obligatorio
                 {
                     case "0":
                         Console.Clear();
-                        Console.WriteLine("Hasta Luego.");
+                        Console.WriteLine("Adios Profe! No se olvide poner buena nota :)");
                         break;
                     case "1":
                         Console.Clear();
-                        Console.WriteLine("Listado de Clientes:");
+                        Console.WriteLine("Listado de Clientes:\n");
                         MostrarClientes();
                         break;
                     case "2":
@@ -153,8 +153,8 @@ namespace Obligatorio
                     string fechaIngresada2 = Console.ReadLine();
                     DateTime fechaFinal = DateTime.Parse(fechaIngresada2);
 
-                    Console.WriteLine("Las fechas ingresada son:\nFecha Inicial: " + fechaInicio + "\nFecha Final: " + fechaFinal);
-                    Console.WriteLine("\n---------------------\nSi la solicitud es correcta escriba Si.");
+                    Console.WriteLine("\n\nLas fechas ingresada son:\nFecha Inicial: " + fechaInicio + "\nFecha Final: " + fechaFinal);
+                    Console.WriteLine("\n---------------------\nSi la solicitud es correcta escriba SI");
                     string respuesta = Console.ReadLine();
                     if (respuesta.ToLower() == "si")
                     {
@@ -162,13 +162,25 @@ namespace Obligatorio
                     }
                     try
                     {
-                        foreach (Publicacion unaPublicacion in sistema.ListarPublicacionesEntreFechas(fechaInicio, fechaFinal))
+
+                        List<Publicacion> lista = new List<Publicacion>();
+                        lista = sistema.ListarPublicacionesEntreFechas(fechaInicio, fechaFinal);
+
+                        if (lista.Count == 0)
                         {
-                            Console.WriteLine(unaPublicacion);
-                            Console.WriteLine("----------------------");
+                            Console.WriteLine("\nNo se encontraron resultados\nVuelve a intentarlo con nuevas fechas...");
+                            Console.ReadLine();
                         }
-                        Console.WriteLine("\n\nPreciona cualquier tecla para volver al menu");
-                        Console.ReadLine();
+                        else
+                        {
+                            foreach (Publicacion unaPublicacion in lista)
+                            {
+                                Console.WriteLine(unaPublicacion);
+                                Console.WriteLine("----------------------");
+                            }
+                                Console.WriteLine("\n\nPreciona cualquier tecla para volver al menu");
+                                Console.ReadLine();
+                        }
                     }
                     catch (Exception e)
                     {
