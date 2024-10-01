@@ -69,6 +69,7 @@ namespace Obligatorio
                     case "4":
                         Console.Clear();
                         Console.WriteLine("Dadas dos fechas listar las publicaciones entre esas fechas. Mostrar Id, nombre estado y fecha de publicación.");
+                        MostrarPublicaciones();
                         break;
                     default:
                         Console.Clear();
@@ -135,6 +136,51 @@ namespace Obligatorio
                 Console.ReadLine();
             }
             
+        }
+
+        static void MostrarPublicaciones() {
+            Sistema sistema = Sistema.Instancia;
+            bool seIngreso4 = false;
+            while (!seIngreso4)
+            {
+                try
+                {
+                    Console.WriteLine("Teniendo en cuenta el siguiente formato dd-mm-aaaa\nIngrese la fecha de inicio:");
+                    string fechaIngresada1 = Console.ReadLine();
+                    DateTime fechaInicio = DateTime.Parse(fechaIngresada1);
+
+                    Console.WriteLine("Ingrese la fecha de finalizacion:");
+                    string fechaIngresada2 = Console.ReadLine();
+                    DateTime fechaFinal = DateTime.Parse(fechaIngresada2);
+
+                    Console.WriteLine("Las fechas ingresada son:\nFecha Inicial: " + fechaInicio + "\nFecha Final: " + fechaFinal);
+                    Console.WriteLine("\n---------------------\nSi la solicitud es correcta escriba Si.");
+                    string respuesta = Console.ReadLine();
+                    if (respuesta.ToLower() == "si")
+                    {
+                        seIngreso4 = true;
+                    }
+                    try
+                    {
+                        foreach (Publicacion unaPublicacion in sistema.ListarPublicacionesEntreFechas(fechaInicio, fechaFinal))
+                        {
+                            Console.WriteLine(unaPublicacion);
+                            Console.WriteLine("----------------------");
+                        }
+                        Console.WriteLine("\n\nPreciona cualquier tecla para volver al menu");
+                        Console.ReadLine();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Error Categoria invalida... Presione cualquier letra para volver al menu");
+                        Console.ReadLine();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
         }
     }
 }
