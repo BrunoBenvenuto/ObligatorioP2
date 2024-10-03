@@ -144,7 +144,6 @@ namespace LogicaNegocio
             try
             {
                 this._articulos.Add(unArticulo);
-                //NOTA NO SE OLVIDEN DE VALIDAR ALGO
             }
             catch (Exception e)
             {

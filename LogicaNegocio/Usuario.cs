@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogicaNegocio
 {
-    public class Usuario
+    public abstract class Usuario
     {
         /* Atributo estatico */
         private static int s_ultimoId = 0;

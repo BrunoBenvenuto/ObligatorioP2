@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogicaNegocio
 {
-    public class Publicacion
+    public abstract class Publicacion
     {
         /* Atributo estatico */
        private static int s_ultimoId = 0;

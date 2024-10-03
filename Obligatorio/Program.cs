@@ -42,7 +42,6 @@ namespace Obligatorio
                                 Articulo articulo = new Articulo();
                                 Console.WriteLine("Ingrese el nombre: ");
                                 string nombre = Console.ReadLine();
-                                //Articulo.ValidarNombre(nombre);
                                 articulo.Nombre = nombre;
                                 Console.WriteLine("Ingrese la categoria: ");
                                 string categoria = Console.ReadLine();
@@ -117,11 +116,11 @@ namespace Obligatorio
 
             Console.WriteLine("---------------------------------");
             Console.WriteLine("Escriba el nombre de la categoria que desea filtrar:");
-            string categiruaABuscar = Console.ReadLine();
+            string categoriaABuscar = Console.ReadLine();
             Console.WriteLine("---------------------------------\n\nResultado de la busqueda:\n");
 
             try {
-                foreach (Articulo unArticulo in sistema.BuscarArticulosPorCategoria(categiruaABuscar))
+                foreach (Articulo unArticulo in sistema.BuscarArticulosPorCategoria(categoriaABuscar))
                 {
                     Console.WriteLine(unArticulo);
                     Console.WriteLine("----------------------");
