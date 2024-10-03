@@ -67,7 +67,7 @@ namespace Obligatorio
                         break;
                     case "4":
                         Console.Clear();
-                        Console.WriteLine("Dadas dos fechas listar las publicaciones entre esas fechas. Mostrar Id, nombre estado y fecha de publicación.");
+                        Console.WriteLine("Publicaciones entre dos fechas.");
                         MostrarPublicaciones();
                         break;
                     default:
@@ -117,9 +117,9 @@ namespace Obligatorio
 
             Console.WriteLine("---------------------------------");
             Console.WriteLine("Escriba el nombre de la categoria que desea filtrar:");
-            string categiruaABuscar = Console.ReadLine();
+            string categoriaABuscar = Console.ReadLine();
             Console.Clear();
-            Console.WriteLine("Resultado de la busqueda: " + categiruaABuscar + "\n");
+            Console.WriteLine("Resultado de la busqueda: " + categoriaABuscar + "\n");
 
             try {
                 foreach (Articulo unArticulo in sistema.BuscarArticulosPorCategoria(categoriaABuscar))

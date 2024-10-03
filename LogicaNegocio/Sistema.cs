@@ -54,6 +54,24 @@ namespace LogicaNegocio
             this.AgregarCliente(cliente2);
         }
 
+        /*
+            // Precargar Clientes
+    usuarios.Add(new Cliente("María", "García López", "maria.garcia@email.com", "password1", 1250.50));
+    usuarios.Add(new Cliente("Juan", "Rodríguez Fernández", "juan.rodriguez@email.com", "password2", 850.00));
+    usuarios.Add(new Cliente("Sofía", "Martínez Gómez", "sofia.martinez@email.com", "password3", 1450.75));
+    usuarios.Add(new Cliente("Pedro", "Sánchez Herrera", "pedro.sanchez@email.com", "password4", 620.30));
+    usuarios.Add(new Cliente("Laura", "Fernández Ruiz", "laura.fernandez@email.com", "password5", 920.50));
+    usuarios.Add(new Cliente("Andrés", "Gutiérrez Díaz", "andres.gutierrez@email.com", "password6", 1130.20));
+    usuarios.Add(new Cliente("Carmen", "Torres Moreno", "carmen.torres@email.com", "password7", 785.40));
+    usuarios.Add(new Cliente("Javier", "Morales Cruz", "javier.morales@email.com", "password8", 910.75));
+    usuarios.Add(new Cliente("Daniela", "Rojas Pérez", "daniela.rojas@email.com", "password9", 1320.50));
+    usuarios.Add(new Cliente("Alejandro", "Mendoza Vargas", "alejandro.mendoza@email.com", "password10", 990.25));
+
+    // Precargar Administradores
+    usuarios.Add(new Administrador("Patricia", "Pérez Jiménez", "patricia.perez@email.com", "adminpass1"));
+    usuarios.Add(new Administrador("Carlos", "Ramírez Castillo", "carlos.ramirez@email.com", "adminpass2")); */
+                 
+
         /*------------------------Precarga Administradores------------------------*/
         private void PrecargarAdministradores()
         {
