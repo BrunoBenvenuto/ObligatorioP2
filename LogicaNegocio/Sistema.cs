@@ -101,27 +101,31 @@ namespace LogicaNegocio
         /*------------------------Precarga Pulicaciones------------------------*/
         private void PrecargarPublicaciones()
         {
-            Publicacion publicacion1 = new Publicacion(
+
+            Venta venta1 = new Venta(
                             "Guía de Papelería",
                             DateTime.Parse("24-04-1993"),
                             DateTime.Parse("30-04-1993"),
-                            150);
+                            100,
+                            true);
 
-            Publicacion publicacion2 = new Publicacion(
+            Venta venta2 = new Venta(
                             "Catálogo de Arte",
                             DateTime.Parse("10-06-2001"),
                             DateTime.Parse("15-06-2001"),
-                            200);
+                            3245,
+                            false);
 
-            Publicacion publicacion3 = new Publicacion(
+            Venta venta3 = new Venta(
                             "Revista de Tecnología",
                             DateTime.Parse("05-10-2020"),
                             DateTime.Parse("12-10-2020"),
-                            99); 
+                            6788,
+                            true); 
             
-            this.AgregarPublicacion(publicacion1);
-            this.AgregarPublicacion(publicacion2);
-            this.AgregarPublicacion(publicacion3);
+            this.AgregarPublicacion(venta1);
+            this.AgregarPublicacion(venta2);
+            this.AgregarPublicacion(venta3);
         }
 
         /*------------------------Metodos para clientes------------------------*/
