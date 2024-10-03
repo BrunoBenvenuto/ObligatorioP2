@@ -64,5 +64,15 @@ namespace LogicaNegocio
             this._fechaFinalizacion = unaFechaFin;
             this._precioPublicacion = unPrecioPub;
         }
+
+        /*----------------------- Metodo ToString ----------------------*/
+        public override string ToString()
+        {
+            return " - Id: " + this.Id +
+                "\n - Nombre: " + this.Nombre +
+                "\n - Fecha Publicacion: " + this.FechaPubliblicaion +
+                "\n - Fecha Finalizacion: " + this.FechaFinalizacion +
+                "\n - Precio: " + this.PrecioPublicacion;
+        }
     }
 }

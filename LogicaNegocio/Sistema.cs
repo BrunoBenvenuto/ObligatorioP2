@@ -42,6 +42,7 @@ namespace LogicaNegocio
             this.PrecargarClientes();
             this.PrecargarAdministradores();
             this.PrecargarArticulos();
+            this.PrecargarPublicaciones();
         }
 
         /*------------------------Precarga Usuarios------------------------*/
@@ -77,6 +78,32 @@ namespace LogicaNegocio
             this.AgregarArticulo(articulo5);
             this.AgregarArticulo(articulo6);
             this.AgregarArticulo(articulo7);
+        }
+
+        /*------------------------Precarga Pulicaciones------------------------*/
+        private void PrecargarPublicaciones()
+        {
+            Publicacion publicacion1 = new Publicacion(
+                            "Guía de Papelería",
+                            DateTime.Parse("24-04-1993"),
+                            DateTime.Parse("30-04-1993"),
+                            150);
+
+            Publicacion publicacion2 = new Publicacion(
+                            "Catálogo de Arte",
+                            DateTime.Parse("10-06-2001"),
+                            DateTime.Parse("15-06-2001"),
+                            200);
+
+            Publicacion publicacion3 = new Publicacion(
+                            "Revista de Tecnología",
+                            DateTime.Parse("05-10-2020"),
+                            DateTime.Parse("12-10-2020"),
+                            99); 
+            
+            this.AgregarPublicacion(publicacion1);
+            this.AgregarPublicacion(publicacion2);
+            this.AgregarPublicacion(publicacion3);
         }
 
         /*------------------------Metodos para clientes------------------------*/
@@ -155,13 +182,42 @@ namespace LogicaNegocio
             List<Articulo> aRetornar = new List<Articulo>();
             foreach (Articulo unArticulo in this.Articulos)
             {
-                if (unArticulo.Categoria == unaCategoria)
+                if (unArticulo.Categoria.ToLower() == unaCategoria.ToLower())
                 {
                     aRetornar.Add(unArticulo);
                 }
             }
             if (aRetornar.Count == 0) throw new Exception("No existen publicaciones con ese genero");
             return aRetornar;
+        }
+
+        /*------------------------Metodo para Publicaciones------------------------*/
+        public void AgregarPublicacion(Publicacion unaNuevaPublicacion)
+        {
+            try
+            {
+                this._publicaciones.Add(unaNuevaPublicacion);
+                //NOTA NO SE OLVIDEN DE VALIDAR ALGO
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public List<Publicacion> ListarPublicacionesEntreFechas(DateTime fechaInicio, DateTime fechaFinal) {
+            Console.Clear();
+            Console.WriteLine("-------------------------------\nEl resultado de la busqueda es:");
+            List<Publicacion> listaPublicacionesFiltradas = new List<Publicacion>();
+            foreach (Publicacion p in this.Publicaciones)
+            {
+
+                if (p.FechaPubliblicaion > fechaInicio && p.FechaPubliblicaion < fechaFinal) {
+                    listaPublicacionesFiltradas.Add(p);
+
+                }
+            }
+            return listaPublicacionesFiltradas;
         }
     }
 }
