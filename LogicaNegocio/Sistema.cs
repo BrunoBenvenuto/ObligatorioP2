@@ -48,35 +48,49 @@ namespace LogicaNegocio
         /*------------------------Precarga Usuarios------------------------*/
         private void PrecargarClientes()
         {
-            Cliente cliente1 = new Cliente("Bruno", "Benvenuto", "brunob@test.com", "1234bruno", 123);
-            Cliente cliente2 = new Cliente("Agustina", "Istebot", "agu@test.com", "1234agu", 1234);
+            Cliente cliente1 = new Cliente(
+                "Bruno", "Benvenuto", "brunob@test.com", "1234bruno", 123);
+            Cliente cliente2 = new Cliente(
+                "Agustina", "Istebot", "agu@test.com", "1234agu", 1234);
+            Cliente cliente3 = new Cliente(
+                "María", "García López", "maria.garcia@email.com", "password1", 1250);
+            Cliente cliente4 = new Cliente(
+                "Juan", "Rodríguez Fernández", "juan.rodriguez@email.com", "password2", 8500);
+            Cliente cliente5 = new Cliente(
+                "Sofía", "Martínez Gómez", "sofia.martinez@email.com", "password3", 1450);
+            Cliente cliente6 = new Cliente(
+                "Pedro", "Sánchez Herrera", "pedro.sanchez@email.com", "password4", 620);
+            Cliente cliente7 = new Cliente(
+                "Laura", "Fernández Ruiz", "laura.fernandez@email.com", "password5", 920);
+            Cliente cliente8 = new Cliente(
+                "Andrés", "Gutiérrez Díaz", "andres.gutierrez@email.com", "password6", 1130);
+            Cliente cliente9 = new Cliente(
+                "Carmen", "Torres Moreno", "carmen.torres@email.com", "password7", 785);
+            Cliente cliente10 = new Cliente(
+                "Alejandro", "Mendoza Vargas", "alejandro.mendoza@email.com", "password10", 990);
+
             this.AgregarCliente(cliente1);
             this.AgregarCliente(cliente2);
-        }
-
-        /*
-            // Precargar Clientes
-    usuarios.Add(new Cliente("María", "García López", "maria.garcia@email.com", "password1", 1250.50));
-    usuarios.Add(new Cliente("Juan", "Rodríguez Fernández", "juan.rodriguez@email.com", "password2", 850.00));
-    usuarios.Add(new Cliente("Sofía", "Martínez Gómez", "sofia.martinez@email.com", "password3", 1450.75));
-    usuarios.Add(new Cliente("Pedro", "Sánchez Herrera", "pedro.sanchez@email.com", "password4", 620.30));
-    usuarios.Add(new Cliente("Laura", "Fernández Ruiz", "laura.fernandez@email.com", "password5", 920.50));
-    usuarios.Add(new Cliente("Andrés", "Gutiérrez Díaz", "andres.gutierrez@email.com", "password6", 1130.20));
-    usuarios.Add(new Cliente("Carmen", "Torres Moreno", "carmen.torres@email.com", "password7", 785.40));
-    usuarios.Add(new Cliente("Javier", "Morales Cruz", "javier.morales@email.com", "password8", 910.75));
-    usuarios.Add(new Cliente("Daniela", "Rojas Pérez", "daniela.rojas@email.com", "password9", 1320.50));
-    usuarios.Add(new Cliente("Alejandro", "Mendoza Vargas", "alejandro.mendoza@email.com", "password10", 990.25));
-
-    // Precargar Administradores
-    usuarios.Add(new Administrador("Patricia", "Pérez Jiménez", "patricia.perez@email.com", "adminpass1"));
-    usuarios.Add(new Administrador("Carlos", "Ramírez Castillo", "carlos.ramirez@email.com", "adminpass2")); */
-                 
+            this.AgregarCliente(cliente3);
+            this.AgregarCliente(cliente4);
+            this.AgregarCliente(cliente5);
+            this.AgregarCliente(cliente6);
+            this.AgregarCliente(cliente7);
+            this.AgregarCliente(cliente8);
+            this.AgregarCliente(cliente9);
+            this.AgregarCliente(cliente10);
+        }         
 
         /*------------------------Precarga Administradores------------------------*/
         private void PrecargarAdministradores()
         {
-            Administrador administrador1 = new Administrador("Jose", "Rodriguez", "jose@test.com", "1234jose");
+            Administrador administrador1 = new Administrador(
+                "Jose", "Rodriguez", "jose@gmail.com", "1234jose");
+            Administrador administrador2 = new Administrador(
+                "Mauro", "Daverio", "mdaverio@tremendomail.com", "ItsMeMario");
+
             this.AgregarAdmin(administrador1);
+            this.AgregarAdmin(administrador2);
         }
 
         /*------------------------Precarga Articulos------------------------*/
