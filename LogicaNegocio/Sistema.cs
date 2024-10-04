@@ -118,6 +118,7 @@ namespace LogicaNegocio
 
             Venta venta1 = new Venta(
                             "Guía de Papelería",
+                            Estado.Abierta,
                             DateTime.Parse("24-04-1993"),
                             DateTime.Parse("30-04-1993"),
                             100,
@@ -125,6 +126,7 @@ namespace LogicaNegocio
 
             Venta venta2 = new Venta(
                             "Catálogo de Arte",
+                            Estado.Abierta,
                             DateTime.Parse("10-06-2001"),
                             DateTime.Parse("15-06-2001"),
                             3245,
@@ -132,6 +134,7 @@ namespace LogicaNegocio
 
             Venta venta3 = new Venta(
                             "Revista de Tecnología",
+                            Estado.Abierta,
                             DateTime.Parse("05-10-2020"),
                             DateTime.Parse("12-10-2020"),
                             6788,
@@ -233,7 +236,6 @@ namespace LogicaNegocio
             try
             {
                 this._publicaciones.Add(unaNuevaPublicacion);
-                //NOTA NO SE OLVIDEN DE VALIDAR ALGO
             }
             catch (Exception e)
             {
@@ -248,7 +250,7 @@ namespace LogicaNegocio
             foreach (Publicacion p in this.Publicaciones)
             {
 
-                if (p.FechaPubliblicaion > fechaInicio && p.FechaPubliblicaion < fechaFinal) {
+                if (p.FechaPubliblicaion >= fechaInicio && p.FechaPubliblicaion <= fechaFinal) {
                     listaPublicacionesFiltradas.Add(p);
 
                 }

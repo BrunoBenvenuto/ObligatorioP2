@@ -45,11 +45,9 @@ namespace Obligatorio
                                 articulo.Nombre = nombre;
                                 Console.WriteLine("Ingrese la categoria: ");
                                 string categoria = Console.ReadLine();
-                                //Articulo.ValidarCategoria(categoria);
                                 articulo.Categoria = categoria;
                                 Console.WriteLine("Ingrese el precio: ");
                                 decimal precioArticulo = decimal.Parse(Console.ReadLine());
-                                //Articulo.ValidarPrecio(precioArticulo);
                                 articulo.PrecioArticulo = precioArticulo;
 
                                 sistema.AgregarArticulo(articulo);

@@ -22,10 +22,12 @@ namespace LogicaNegocio
 
         public Venta(
             string unNombre,
+            Estado unEstado,
             DateTime unaFechaPub,
             DateTime unaFechaFin,
             decimal unPrecioPub,
-            bool unaOferta) : base(unNombre, unaFechaPub, unaFechaFin, unPrecioPub)
+            List<Articulo> articulos,
+            bool unaOferta) : base(unNombre, unEstado, unaFechaPub, unaFechaFin, unPrecioPub, articulos)
         {
             this._ofertaRelampago = unaOferta;
         }
