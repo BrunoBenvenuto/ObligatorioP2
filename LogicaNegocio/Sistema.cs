@@ -37,6 +37,7 @@
             this.PrecargarAdministradores();
             this.PrecargarArticulos();
             this.PrecargarVentas();
+            this.PrecargarSubastas();
         }
 
         /*------------------------Precarga Usuarios------------------------*/
@@ -71,19 +72,6 @@
                 this.AgregarCliente(c);
             }
 
-
-
-
-            //this.AgregarCliente(cliente1);
-            //this.AgregarCliente(cliente2);
-            //this.AgregarCliente(cliente3);
-            //this.AgregarCliente(cliente4);
-            //this.AgregarCliente(cliente5);
-            //this.AgregarCliente(cliente6);
-            //this.AgregarCliente(cliente7);
-            //this.AgregarCliente(cliente8);
-            //this.AgregarCliente(cliente9);
-            //this.AgregarCliente(cliente10);
         }
 
         /*------------------------Precarga Administradores------------------------*/
@@ -163,7 +151,7 @@
         }
 
 
-        /*------------------------Precarga Pulicaciones------------------------*/
+        /*------------------------Precarga Ventas------------------------*/
         private void PrecargarVentas()
         {
             // Crear diferentes listas de artículos utilizando los artículos ya cargados en el sistema
@@ -179,7 +167,7 @@
             List<Articulo> articulos10 = new List<Articulo> { _articulos[22], _articulos[23], _articulos[24], _articulos[25] };
 
             // Crear 10 ventas y agregarlas al sistema utilizando el método AgregarPublicacion
-            AgregarPublicacion(new Venta("Deportes Extremos", Estado.Abierta, DateTime.Now, null, 299.99m, articulos1, null, null, true));
+            AgregarPublicacion(new Venta("Deportes Extremos", Estado.Abierta, DateTime.Now.AddDays(-54), null, 299.99m, articulos1, null, null, true));
             AgregarPublicacion(new Venta("Equipamiento Deportivo", Estado.Abierta, DateTime.Now, null, 199.99m, articulos2, null, null, false));
             AgregarPublicacion(new Venta("Aventura en la Montaña", Estado.Abierta, DateTime.Now, null, 349.99m, articulos3, null, null, true));
             AgregarPublicacion(new Venta("Ropa para Running", Estado.Abierta, DateTime.Now, null, 159.99m, articulos4, null, null, false));
@@ -190,6 +178,48 @@
             AgregarPublicacion(new Venta("Fitness Total", Estado.Abierta, DateTime.Now, null, 219.99m, articulos9, null, null, true));
             AgregarPublicacion(new Venta("Ciclismo Profesional", Estado.Abierta, DateTime.Now, null, 389.99m, articulos10, null, null, false));
         }
+
+        /*------------------------Precarga Subastas ----------------------------*/
+        private void PrecargarSubastas()
+        {
+            // Crear diferentes listas de artículos utilizando los artículos ya cargados en el sistema
+            List<Articulo> articulos1 = new List<Articulo> { _articulos[26], _articulos[27], _articulos[28] };
+            List<Articulo> articulos2 = new List<Articulo> { _articulos[29], _articulos[30] };
+            List<Articulo> articulos3 = new List<Articulo> { _articulos[31], _articulos[32], _articulos[33], _articulos[34] };
+            List<Articulo> articulos4 = new List<Articulo> { _articulos[35] };
+            List<Articulo> articulos5 = new List<Articulo> { _articulos[36], _articulos[37] };
+            List<Articulo> articulos6 = new List<Articulo> { _articulos[38], _articulos[39], _articulos[40] };
+            List<Articulo> articulos7 = new List<Articulo> { _articulos[41], _articulos[42] };
+            List<Articulo> articulos8 = new List<Articulo> { _articulos[43], _articulos[44], _articulos[45] };
+            List<Articulo> articulos9 = new List<Articulo> { _articulos[46] };
+            List<Articulo> articulos10 = new List<Articulo> { _articulos[47], _articulos[48], _articulos[49] };
+
+            // Crear listas de ofertas
+            List<Oferta> ofertasSubasta1 = new List<Oferta>
+            {
+                new Oferta(150m, DateTime.Now.AddDays(-3), _usuarios[0]),
+                new Oferta(200m, DateTime.Now.AddDays(-1), _usuarios[1])
+            };
+
+            List<Oferta> ofertasSubasta2 = new List<Oferta>
+            {
+                new Oferta(300m, DateTime.Now.AddDays(-5), _usuarios[2]),
+                new Oferta(350m, DateTime.Now.AddDays(-2), _usuarios[3])
+            };
+
+            // Crear 10 subastas y agregarlas al sistema utilizando el método AgregarPublicacion
+            AgregarPublicacion(new Subasta("Vuelta Ciclista", Estado.Abierta, DateTime.Now.AddDays(-8), null, 500m, articulos1, null, ofertasSubasta1, null));
+            AgregarPublicacion(new Subasta("Equipo de Camping", Estado.Abierta, DateTime.Now.AddDays(-1), null, 250m, articulos2, null, ofertasSubasta2, null));
+            AgregarPublicacion(new Subasta("Caza y Pesca", Estado.Abierta, DateTime.Now, null, 600m, articulos3, null, null, null));
+            AgregarPublicacion(new Subasta("Ropa de Montaña", Estado.Abierta, DateTime.Now, null, 350m, articulos4, null, new List<Oferta>(), null));
+            AgregarPublicacion(new Subasta("Equipamiento de Escalada", Estado.Abierta, DateTime.Now, null, 450m, articulos5, null, new List<Oferta>(), null));
+            AgregarPublicacion(new Subasta("Set de Viaje", Estado.Abierta, DateTime.Now, null, 200m, articulos6, null, new List<Oferta>(), null));
+            AgregarPublicacion(new Subasta("Camping de Lujo", Estado.Abierta, DateTime.Now, null, 700m, articulos7, null, new List<Oferta>(), null));
+            AgregarPublicacion(new Subasta("Aventura Extrema", Estado.Abierta, DateTime.Now, null, 800m, articulos8, null, new List<Oferta>(), null));
+            AgregarPublicacion(new Subasta("Mountain Bike", Estado.Abierta, DateTime.Now, null, 900m, articulos9, null, new List<Oferta>(), null));
+            AgregarPublicacion(new Subasta("Ropa para Esquí", Estado.Abierta, DateTime.Now, null, 550m, articulos10, null, new List<Oferta>(), null));
+        }
+
 
         /*------------------------Metodos para clientes------------------------*/
         public void AgregarCliente(Cliente unCliente)
@@ -295,7 +325,7 @@
             Console.Clear();
             Console.WriteLine("-------------------------------\nEl resultado de la busqueda es:");
             List<Publicacion> listaPublicacionesFiltradas = new List<Publicacion>();
-            foreach (Publicacion p in this.Publicaciones)
+            foreach (Publicacion p in this._publicaciones)
             {
 
                 if (p.FechaPubliblicaion >= fechaInicio && p.FechaPubliblicaion <= fechaFinal)

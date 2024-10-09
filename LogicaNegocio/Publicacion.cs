@@ -110,9 +110,7 @@ namespace LogicaNegocio
             return " - Id: " + this.Id +
                 "\n - Nombre: " + this.Nombre +
                 "\n - Estado: " + this.Estado +
-                "\n - Fecha Publicacion: " + this.FechaPubliblicaion +
-                "\n - Fecha Finalizacion: " + this.FechaFinalizacion +
-                "\n - Precio: " + this.PrecioPublicacion;
+                "\n - Fecha Publicacion: " + this.FechaPubliblicaion;
         }
     }
 }
