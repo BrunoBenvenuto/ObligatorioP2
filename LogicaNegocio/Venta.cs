@@ -24,10 +24,12 @@ namespace LogicaNegocio
             string unNombre,
             Estado unEstado,
             DateTime unaFechaPub,
-            DateTime unaFechaFin,
+            DateTime? unaFechaFin,
             decimal unPrecioPub,
             List<Articulo> articulos,
-            bool unaOferta) : base(unNombre, unEstado, unaFechaPub, unaFechaFin, unPrecioPub, articulos)
+            Cliente? clienteCompra,
+            Usuario? unUsuarioFinalizador,
+            bool unaOferta) : base(unNombre, unEstado, unaFechaPub, unaFechaFin, unPrecioPub, articulos, clienteCompra, unUsuarioFinalizador)
         {
             this._ofertaRelampago = unaOferta;
         }

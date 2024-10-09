@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LogicaNegocio
+﻿namespace LogicaNegocio
 {
     public class Sistema
     {
@@ -20,7 +14,7 @@ namespace LogicaNegocio
         {
             get
             {
-                if(_instancia == null)
+                if (_instancia == null)
                 {
                     _instancia = new Sistema();
                 }
@@ -29,8 +23,8 @@ namespace LogicaNegocio
         }
 
         public List<Usuario> Usuarios { get { return _usuarios; } }
-        public List<Articulo> Articulos { get {  return _articulos; } }
-        public List<Publicacion> Publicaciones { get {  return _publicaciones; } }
+        public List<Articulo> Articulos { get { return _articulos; } }
+        public List<Publicacion> Publicaciones { get { return _publicaciones; } }
 
         private Sistema()
         {
@@ -42,44 +36,55 @@ namespace LogicaNegocio
             this.PrecargarClientes();
             this.PrecargarAdministradores();
             this.PrecargarArticulos();
-            this.PrecargarPublicaciones();
+            this.PrecargarVentas();
         }
 
         /*------------------------Precarga Usuarios------------------------*/
         private void PrecargarClientes()
         {
-            Cliente cliente1 = new Cliente(
-                "Bruno", "Benvenuto", "brunob@test.com", "1234bruno", 123);
-            Cliente cliente2 = new Cliente(
-                "Agustina", "Istebot", "agu@test.com", "1234agu", 1234);
-            Cliente cliente3 = new Cliente(
-                "María", "García López", "maria.garcia@email.com", "password1", 1250);
-            Cliente cliente4 = new Cliente(
-                "Juan", "Rodríguez Fernández", "juan.rodriguez@email.com", "password2", 8500);
-            Cliente cliente5 = new Cliente(
-                "Sofía", "Martínez Gómez", "sofia.martinez@email.com", "password3", 1450);
-            Cliente cliente6 = new Cliente(
-                "Pedro", "Sánchez Herrera", "pedro.sanchez@email.com", "password4", 620);
-            Cliente cliente7 = new Cliente(
-                "Laura", "Fernández Ruiz", "laura.fernandez@email.com", "password5", 920);
-            Cliente cliente8 = new Cliente(
-                "Andrés", "Gutiérrez Díaz", "andres.gutierrez@email.com", "password6", 1130);
-            Cliente cliente9 = new Cliente(
-                "Carmen", "Torres Moreno", "carmen.torres@email.com", "password7", 785);
-            Cliente cliente10 = new Cliente(
-                "Alejandro", "Mendoza Vargas", "alejandro.mendoza@email.com", "password10", 990);
+            List<Cliente> clientesAux = new List<Cliente>
+            {
+             new Cliente(
+                "Bruno", "Benvenuto", "brunob@test.com", "1234bruno", 123),
+            new Cliente(
+                "Agustina", "Istebot", "agu@test.com", "1234agu", 1234),
+            new Cliente(
+                "María", "García López", "maria.garcia@email.com", "password1", 1250),
+            new Cliente(
+               "Juan", "Rodríguez Fernández", "juan.rodriguez@email.com", "password2", 8500),
+            new Cliente(
+                  "Sofía", "Martínez Gómez", "sofia.martinez@email.com", "password3", 1450),
+            new Cliente(
+                   "Pedro", "Sánchez Herrera", "pedro.sanchez@email.com", "password4", 620),
+            new Cliente(
+                   "Laura", "Fernández Ruiz", "laura.fernandez@email.com", "password5", 920),
+            new Cliente(
+                   "Andrés", "Gutiérrez Díaz", "andres.gutierrez@email.com", "password6", 1130),
+            new Cliente(
+                         "Carmen", "Torres Moreno", "carmen.torres@email.com", "password7", 785),
+            new Cliente(
+                       "Alejandro", "Mendoza Vargas", "alejandro.mendoza@email.com", "password10", 990)
+        };
 
-            this.AgregarCliente(cliente1);
-            this.AgregarCliente(cliente2);
-            this.AgregarCliente(cliente3);
-            this.AgregarCliente(cliente4);
-            this.AgregarCliente(cliente5);
-            this.AgregarCliente(cliente6);
-            this.AgregarCliente(cliente7);
-            this.AgregarCliente(cliente8);
-            this.AgregarCliente(cliente9);
-            this.AgregarCliente(cliente10);
-        }         
+            foreach (Cliente c in clientesAux)
+            {
+                this.AgregarCliente(c);
+            }
+
+
+
+
+            //this.AgregarCliente(cliente1);
+            //this.AgregarCliente(cliente2);
+            //this.AgregarCliente(cliente3);
+            //this.AgregarCliente(cliente4);
+            //this.AgregarCliente(cliente5);
+            //this.AgregarCliente(cliente6);
+            //this.AgregarCliente(cliente7);
+            //this.AgregarCliente(cliente8);
+            //this.AgregarCliente(cliente9);
+            //this.AgregarCliente(cliente10);
+        }
 
         /*------------------------Precarga Administradores------------------------*/
         private void PrecargarAdministradores()
@@ -94,55 +99,96 @@ namespace LogicaNegocio
         }
 
         /*------------------------Precarga Articulos------------------------*/
+
         private void PrecargarArticulos()
         {
-            Articulo articulo1 = new Articulo("Caja", "Papeleria", 200);
-            Articulo articulo2 = new Articulo("Cuaderno", "Papeleria", 300);
-            Articulo articulo3 = new Articulo("Pintura Roja", "Pintura", 50);
-            Articulo articulo4 = new Articulo("Caramelo", "Golosina", 3);
-            Articulo articulo5 = new Articulo("Alfajor", "Golosina", 50);
-            Articulo articulo6 = new Articulo("Caramelo de Miel", "Golosina", 4);
-            Articulo articulo7 = new Articulo("Alfajor Juanito", "Golosina", 70);
-            this.AgregarArticulo(articulo1);
-            this.AgregarArticulo(articulo2);
-            this.AgregarArticulo(articulo3);
-            this.AgregarArticulo(articulo4);
-            this.AgregarArticulo(articulo5);
-            this.AgregarArticulo(articulo6);
-            this.AgregarArticulo(articulo7);
+            List<Articulo> articulosAux = new List<Articulo>
+            {
+                new Articulo("Bicicleta de montaña", "Deportes", 1200.99m),
+                new Articulo("Patineta", "Deportes", 85.50m),
+                new Articulo("Balón de fútbol", "Deportes", 25.75m),
+                new Articulo("Raqueta de tenis", "Deportes", 145.99m),
+                new Articulo("Camiseta de running", "Ropa", 35.90m),
+                new Articulo("Zapatillas deportivas", "Ropa", 79.99m),
+                new Articulo("Pantalones cortos", "Ropa", 29.50m),
+                new Articulo("Gorra de béisbol", "Accesorios", 19.99m),
+                new Articulo("Gorra de béisbol", "Accesorios", 19.99m),
+                new Articulo("Gafas de sol", "Accesorios", 49.99m),
+                new Articulo("Bicicleta de carrera", "Ciclismo", 1500.00m),
+                new Articulo("Casco de ciclismo", "Ciclismo", 89.99m),
+                new Articulo("Guantes de ciclismo", "Ciclismo", 25.49m),
+                new Articulo("Bomba de aire", "Ciclismo", 15.75m),
+                new Articulo("Botella de agua", "Accesorios", 12.50m),
+                new Articulo("Mochila deportiva", "Accesorios", 45.00m),
+                new Articulo("Kit de herramientas", "Automotriz", 75.99m),
+                new Articulo("Linterna LED", "Hogar", 22.90m),
+                new Articulo("Cargador portátil", "Electrónica", 35.50m),
+                new Articulo("Auriculares Bluetooth", "Electrónica", 59.99m),
+                new Articulo("Teclado mecánico", "Electrónica", 89.50m),
+                new Articulo("Ratón inalámbrico", "Electrónica", 25.99m),
+                new Articulo("Monitor LED", "Electrónica", 199.99m),
+                new Articulo("Silla de oficina", "Muebles", 149.99m),
+                new Articulo("Escritorio", "Muebles", 249.50m),
+                new Articulo("Estantería", "Muebles", 99.75m),
+                new Articulo("Lámpara de escritorio", "Hogar", 29.99m),
+                new Articulo("Cafetera", "Hogar", 79.99m),
+                new Articulo("Tetera eléctrica", "Hogar", 45.50m),
+                new Articulo("Reloj de pared", "Decoración", 35.00m),
+                new Articulo("Alfombra", "Decoración", 89.99m),
+                new Articulo("Cojín decorativo", "Decoración", 19.50m),
+                new Articulo("Espejo de pared", "Decoración", 129.99m),
+                new Articulo("Marco de fotos", "Decoración", 15.99m),
+                new Articulo("Sofá de 3 plazas", "Muebles", 499.99m),
+                new Articulo("Mesa de centro", "Muebles", 125.00m),
+                new Articulo("Taburete", "Muebles", 49.50m),
+                new Articulo("Ventilador de torre", "Electrodomésticos", 89.99m),
+                new Articulo("Aspiradora", "Electrodomésticos", 159.99m),
+                new Articulo("Plancha de vapor", "Electrodomésticos", 39.90m),
+                new Articulo("Set de cuchillos", "Cocina", 25.99m),
+                new Articulo("Sartenes", "Cocina", 55.75m),
+                new Articulo("Olla a presión", "Cocina", 79.50m),
+                new Articulo("Tupperware", "Cocina", 19.99m),
+                new Articulo("Cubertería", "Cocina", 45.00m),
+                new Articulo("Jarra de vidrio", "Cocina", 15.75m),
+                new Articulo("Set de vasos", "Cocina", 20.99m),
+                new Articulo("Toallas de baño", "Baño", 29.50m),
+                new Articulo("Esponjas", "Baño", 9.99m),
+                new Articulo("Alfombra de baño", "Baño", 19.50m)
+            };
+
+            foreach (Articulo a in articulosAux)
+            {
+                this.AgregarArticulo(a);
+            }
         }
 
+
         /*------------------------Precarga Pulicaciones------------------------*/
-        private void PrecargarPublicaciones()
+        private void PrecargarVentas()
         {
+            // Crear diferentes listas de artículos utilizando los artículos ya cargados en el sistema
+            List<Articulo> articulos1 = new List<Articulo> { _articulos[0], _articulos[1] };
+            List<Articulo> articulos2 = new List<Articulo> { _articulos[2], _articulos[3], _articulos[4] };
+            List<Articulo> articulos3 = new List<Articulo> { _articulos[5], _articulos[6] };
+            List<Articulo> articulos4 = new List<Articulo> { _articulos[7] };
+            List<Articulo> articulos5 = new List<Articulo> { _articulos[8], _articulos[9], _articulos[10] };
+            List<Articulo> articulos6 = new List<Articulo> { _articulos[11], _articulos[12] };
+            List<Articulo> articulos7 = new List<Articulo> { _articulos[13], _articulos[14], _articulos[15], _articulos[16] };
+            List<Articulo> articulos8 = new List<Articulo> { _articulos[17], _articulos[18] };
+            List<Articulo> articulos9 = new List<Articulo> { _articulos[19], _articulos[20], _articulos[21] };
+            List<Articulo> articulos10 = new List<Articulo> { _articulos[22], _articulos[23], _articulos[24], _articulos[25] };
 
-            Venta venta1 = new Venta(
-                            "Guía de Papelería",
-                            Estado.Abierta,
-                            DateTime.Parse("24-04-1993"),
-                            DateTime.Parse("30-04-1993"),
-                            100,
-                            true);
-
-            Venta venta2 = new Venta(
-                            "Catálogo de Arte",
-                            Estado.Abierta,
-                            DateTime.Parse("10-06-2001"),
-                            DateTime.Parse("15-06-2001"),
-                            3245,
-                            false);
-
-            Venta venta3 = new Venta(
-                            "Revista de Tecnología",
-                            Estado.Abierta,
-                            DateTime.Parse("05-10-2020"),
-                            DateTime.Parse("12-10-2020"),
-                            6788,
-                            true); 
-            
-            this.AgregarPublicacion(venta1);
-            this.AgregarPublicacion(venta2);
-            this.AgregarPublicacion(venta3);
+            // Crear 10 ventas y agregarlas al sistema utilizando el método AgregarPublicacion
+            AgregarPublicacion(new Venta("Deportes Extremos", Estado.Abierta, DateTime.Now, null, 299.99m, articulos1, null, null, true));
+            AgregarPublicacion(new Venta("Equipamiento Deportivo", Estado.Abierta, DateTime.Now, null, 199.99m, articulos2, null, null, false));
+            AgregarPublicacion(new Venta("Aventura en la Montaña", Estado.Abierta, DateTime.Now, null, 349.99m, articulos3, null, null, true));
+            AgregarPublicacion(new Venta("Ropa para Running", Estado.Abierta, DateTime.Now, null, 159.99m, articulos4, null, null, false));
+            AgregarPublicacion(new Venta("Ciclismo y Más", Estado.Abierta, DateTime.Now, null, 299.99m, articulos5, null, null, true));
+            AgregarPublicacion(new Venta("Verano Activo", Estado.Abierta, DateTime.Now, null, 249.99m, articulos6, null, null, false));
+            AgregarPublicacion(new Venta("Accesorios para Deportes", Estado.Abierta, DateTime.Now, null, 189.99m, articulos7, null, null, true));
+            AgregarPublicacion(new Venta("Entrenamiento al Aire Libre", Estado.Abierta, DateTime.Now, null, 139.99m, articulos8, null, null, false));
+            AgregarPublicacion(new Venta("Fitness Total", Estado.Abierta, DateTime.Now, null, 219.99m, articulos9, null, null, true));
+            AgregarPublicacion(new Venta("Ciclismo Profesional", Estado.Abierta, DateTime.Now, null, 389.99m, articulos10, null, null, false));
         }
 
         /*------------------------Metodos para clientes------------------------*/
@@ -153,7 +199,7 @@ namespace LogicaNegocio
                 this.ExisteCliente(unCliente);
                 this._usuarios.Add(unCliente);
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
@@ -193,14 +239,14 @@ namespace LogicaNegocio
         public List<Usuario> ObtenerClientes()
         {
             List<Usuario> aRetornar = new List<Usuario>();
-            foreach(Usuario u in this._usuarios)
+            foreach (Usuario u in this._usuarios)
             {
-                if(u is Cliente)
+                if (u is Cliente)
                 {
                     aRetornar.Add(u);
                 }
             }
-            return aRetornar;   
+            return aRetornar;
         }
 
         /*------------------------Metodo para Articulos------------------------*/
@@ -217,7 +263,8 @@ namespace LogicaNegocio
             }
         }
 
-        public List<Articulo> BuscarArticulosPorCategoria(string unaCategoria) {
+        public List<Articulo> BuscarArticulosPorCategoria(string unaCategoria)
+        {
             List<Articulo> aRetornar = new List<Articulo>();
             foreach (Articulo unArticulo in this.Articulos)
             {
@@ -243,14 +290,16 @@ namespace LogicaNegocio
             }
         }
 
-        public List<Publicacion> ListarPublicacionesEntreFechas(DateTime fechaInicio, DateTime fechaFinal) {
+        public List<Publicacion> ListarPublicacionesEntreFechas(DateTime fechaInicio, DateTime fechaFinal)
+        {
             Console.Clear();
             Console.WriteLine("-------------------------------\nEl resultado de la busqueda es:");
             List<Publicacion> listaPublicacionesFiltradas = new List<Publicacion>();
             foreach (Publicacion p in this.Publicaciones)
             {
 
-                if (p.FechaPubliblicaion >= fechaInicio && p.FechaPubliblicaion <= fechaFinal) {
+                if (p.FechaPubliblicaion >= fechaInicio && p.FechaPubliblicaion <= fechaFinal)
+                {
                     listaPublicacionesFiltradas.Add(p);
 
                 }

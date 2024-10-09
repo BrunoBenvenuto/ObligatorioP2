@@ -16,9 +16,12 @@ namespace LogicaNegocio
         private string _nombre;
         private Estado _estado;
         private DateTime _fechaPublicacion;
-        private DateTime _fechaFinalizacion;
+        private DateTime? _fechaFinalizacion; //????????????? UML ??????????????????
         private decimal _precioPublicacion;
         private List<Articulo> _articulos;
+        private Cliente? _clienteCompra;
+        private Usuario? _usuarioFinalizador;
+
 
         /* Propiedades */
         public int Id
@@ -44,7 +47,7 @@ namespace LogicaNegocio
             set { _fechaPublicacion = value; }
         }
 
-        public DateTime FechaFinalizacion
+        public DateTime? FechaFinalizacion
         {
             get { return _fechaFinalizacion; }
             set { _fechaFinalizacion = value; }
@@ -61,6 +64,18 @@ namespace LogicaNegocio
             get { return _articulos; }
         }
 
+        public Cliente? ClienteCompra
+        {
+            get { return _clienteCompra; }
+            set { _clienteCompra = value;}
+        }
+
+        public Usuario? UsuarioFinalizador
+        {
+            get { return _usuarioFinalizador; }
+            set { _usuarioFinalizador = value; }
+        }
+
 
         /* Constructores */
 
@@ -69,7 +84,14 @@ namespace LogicaNegocio
             this._id = Publicacion.s_ultimoId++;
         }
 
-        public Publicacion(string unNombre, Estado unEstado, DateTime unaFechaPub, DateTime unaFechaFin, decimal unPrecioPub, List<Articulo> articulos)
+        public Publicacion(string unNombre, 
+                            Estado unEstado,
+                            DateTime unaFechaPub,
+                            DateTime? unaFechaFin,
+                            decimal unPrecioPub,
+                            List<Articulo> articulos,
+                            Cliente? clienteCompra,
+                            Usuario? unUsuarioFinalizador)
         {
             this._id = Publicacion.s_ultimoId++;
             this._nombre = unNombre;
@@ -78,6 +100,8 @@ namespace LogicaNegocio
             this._fechaFinalizacion = unaFechaFin;
             this._precioPublicacion = unPrecioPub;
             this._articulos = articulos;
+            this._clienteCompra = clienteCompra;
+            this._usuarioFinalizador = unUsuarioFinalizador;
         }
 
         /*----------------------- Metodo ToString ----------------------*/

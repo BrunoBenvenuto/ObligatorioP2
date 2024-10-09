@@ -14,6 +14,7 @@ namespace LogicaNegocio
         // Atributos 
         private int _id;
         private decimal _monto;
+        private Cliente _clientePuja;
         private DateTime _fechaRealizacion;
 
         // Propiedades 
@@ -33,17 +34,25 @@ namespace LogicaNegocio
             get { return _fechaRealizacion; }
             set { _fechaRealizacion = value; }
         }
+
+        public Cliente ClientePuja
+        {
+            get { return _clientePuja; }
+            set { _clientePuja = value; }
+        }
+
+        /*********************** CONSTRUCTORES ********************************/
         public Oferta()
         {
             this._id = Oferta.s_ultimoId++;
         }
 
-        public Oferta(decimal unMonto, DateTime unaFechaRealizacion)
+        public Oferta(decimal unMonto, DateTime unaFechaRealizacion, Cliente unClientePuja)
         {
             this._id = Oferta.s_ultimoId++;
             this._monto = unMonto;
             this._fechaRealizacion = unaFechaRealizacion;
-
+            this._clientePuja = unClientePuja;
         }
     }
 }
