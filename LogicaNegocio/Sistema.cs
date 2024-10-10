@@ -3,7 +3,7 @@
     public class Sistema
     {
         /*SINGLETON*/
-        private static Sistema _instancia;
+        private static Sistema s_instancia;
 
         /*Atributos*/
         private List<Usuario> _usuarios = new List<Usuario>();
@@ -14,11 +14,11 @@
         {
             get
             {
-                if (_instancia == null)
+                if (s_instancia == null)
                 {
-                    _instancia = new Sistema();
+                    s_instancia = new Sistema();
                 }
-                return _instancia;
+                return s_instancia;
             }
         }
 
@@ -45,7 +45,7 @@
         {
             List<Cliente> clientesAux = new List<Cliente>
             {
-             new Cliente(
+            new Cliente(
                 "Bruno", "Benvenuto", "brunob@test.com", "1234bruno", 123),
             new Cliente(
                 "Agustina", "Istebot", "agu@test.com", "1234agu", 1234),

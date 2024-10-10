@@ -34,5 +34,14 @@
             Cliente otroCliente = obj as Cliente;
             return otroCliente.Id == this.Id;
         }
+
+        /*----------------------- Metodo ToString ----------------------*/
+        public override string ToString()
+        {
+            return " - Id: " + this.Id +
+                "\n - Nombre: " + this.Nombre +
+                "\n - Email: " + this.Mail +
+                "\n - Saldo: " + this.SaldoBilletera;
+        }
     }
 }

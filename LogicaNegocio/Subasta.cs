@@ -9,7 +9,6 @@
         public List<Oferta> ClientesOfertas
         {
             get { return _clientesOfertas; } 
-            // VA EL SET????
         }
 
         //Constructores

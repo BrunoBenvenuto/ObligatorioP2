@@ -78,10 +78,18 @@ namespace Obligatorio
         static void MostrarClientes()
         {
             Sistema sistema = Sistema.Instancia;
-            foreach (Usuario unUsuario in sistema.ObtenerClientes())
+
+            if (sistema.ObtenerClientes().Count == 0) 
             {
-                Console.WriteLine($"{unUsuario.Nombre} {unUsuario.Apellido}");
-                Console.WriteLine("----------------------------");
+                Console.WriteLine("No existen Clientes");
+            }
+            else
+            {
+                foreach (Usuario unUsuario in sistema.ObtenerClientes())
+                {
+                    Console.WriteLine(unUsuario);
+                    Console.WriteLine("----------------------------");
+                }
             }
             Console.ReadLine();
         }

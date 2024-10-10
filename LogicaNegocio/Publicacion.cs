@@ -10,7 +10,7 @@
         private string _nombre;
         private Estado _estado;
         private DateTime _fechaPublicacion;
-        private DateTime? _fechaFinalizacion; //????????????? UML ??????????????????
+        private DateTime? _fechaFinalizacion;
         private decimal _precioPublicacion;
         private List<Articulo> _articulos;
         private Cliente? _clienteCompra;
