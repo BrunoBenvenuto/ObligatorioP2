@@ -91,6 +91,7 @@ namespace Obligatorio
                     Console.WriteLine("----------------------------");
                 }
             }
+            Console.WriteLine("Presione cualquier tecla para volver al menu");
             Console.ReadLine();
         }
 
