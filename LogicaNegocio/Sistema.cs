@@ -100,7 +100,7 @@
                 new Articulo("Zapatillas deportivas", "Ropa", 79.99m),
                 new Articulo("Pantalones cortos", "Ropa", 29.50m),
                 new Articulo("Gorra de béisbol", "Accesorios", 19.99m),
-                new Articulo("Gorra de béisbol", "Accesorios", 19.99m),
+                new Articulo("Taza", "Hogar", 27.50m),
                 new Articulo("Gafas de sol", "Accesorios", 49.99m),
                 new Articulo("Bicicleta de carrera", "Ciclismo", 1500.00m),
                 new Articulo("Casco de ciclismo", "Ciclismo", 89.99m),
@@ -167,21 +167,24 @@
             List<Articulo> articulos10 = new List<Articulo> { _articulos[22], _articulos[23], _articulos[24], _articulos[25] };
 
             // Crear 10 ventas y agregarlas al sistema utilizando el método AgregarPublicacion
-            AgregarPublicacion(new Venta("Deportes Extremos", Estado.Abierta, DateTime.Now.AddDays(-54), null, 299.99m, articulos1, null, null, true));
-            AgregarPublicacion(new Venta("Equipamiento Deportivo", Estado.Abierta, DateTime.Now, null, 199.99m, articulos2, null, null, false));
-            AgregarPublicacion(new Venta("Aventura en la Montaña", Estado.Abierta, DateTime.Now, null, 349.99m, articulos3, null, null, true));
-            AgregarPublicacion(new Venta("Ropa para Running", Estado.Abierta, DateTime.Now, null, 159.99m, articulos4, null, null, false));
-            AgregarPublicacion(new Venta("Ciclismo y Más", Estado.Abierta, DateTime.Now, null, 299.99m, articulos5, null, null, true));
-            AgregarPublicacion(new Venta("Verano Activo", Estado.Abierta, DateTime.Now, null, 249.99m, articulos6, null, null, false));
-            AgregarPublicacion(new Venta("Accesorios para Deportes", Estado.Abierta, DateTime.Now, null, 189.99m, articulos7, null, null, true));
-            AgregarPublicacion(new Venta("Entrenamiento al Aire Libre", Estado.Abierta, DateTime.Now, null, 139.99m, articulos8, null, null, false));
-            AgregarPublicacion(new Venta("Fitness Total", Estado.Abierta, DateTime.Now, null, 219.99m, articulos9, null, null, true));
-            AgregarPublicacion(new Venta("Ciclismo Profesional", Estado.Abierta, DateTime.Now, null, 389.99m, articulos10, null, null, false));
+            AgregarPublicacion(new Venta("Deportes Extremos", Estado.Abierta, DateTime.Parse("08-03-2012"), null, 299.99m, articulos1, null, null, true));
+            AgregarPublicacion(new Venta("Equipamiento Deportivo", Estado.Abierta, DateTime.Parse("30-12-2021"), null, 199.99m, articulos2, null, null, false));
+            AgregarPublicacion(new Venta("Aventura en la Montaña", Estado.Abierta, DateTime.Parse("15-06-2010"), null, 349.99m, articulos3, null, null, true));
+            AgregarPublicacion(new Venta("Ropa para Running", Estado.Abierta, DateTime.Parse("03-03-2018"), null, 159.99m, articulos4, null, null, false));
+            AgregarPublicacion(new Venta("Ciclismo y Más", Estado.Abierta, DateTime.Parse("22-01-2020"), null, 299.99m, articulos5, null, null, true));
+            AgregarPublicacion(new Venta("Verano Activo", Estado.Abierta, DateTime.Parse("03-03-2015"), null, 249.99m, articulos6, null, null, false));
+            AgregarPublicacion(new Venta("Accesorios para Deportes", Estado.Abierta, DateTime.Parse("05-04-2017"), null, 189.99m, articulos7, null, null, true));
+            AgregarPublicacion(new Venta("Entrenamiento al Aire Libre", Estado.Abierta, DateTime.Parse("08-08-2020"), null, 139.99m, articulos8, null, null, false));
+            AgregarPublicacion(new Venta("Fitness Total", Estado.Abierta, DateTime.Parse("11-08-2023"), null, 219.99m, articulos9, null, null, true));
+            AgregarPublicacion(new Venta("Ciclismo Profesional", Estado.Abierta, DateTime.Parse("11-01-2019"), null, 389.99m, articulos10, null, null, false));
         }
 
         /*------------------------Precarga Subastas ----------------------------*/
         private void PrecargarSubastas()
         {
+            // Filtrar solo los clientes de la lista de usuarios del sistema
+            List<Cliente> clientes = _usuarios.OfType<Cliente>().ToList();
+
             // Crear diferentes listas de artículos utilizando los artículos ya cargados en el sistema
             List<Articulo> articulos1 = new List<Articulo> { _articulos[26], _articulos[27], _articulos[28] };
             List<Articulo> articulos2 = new List<Articulo> { _articulos[29], _articulos[30] };
@@ -197,27 +200,28 @@
             // Crear listas de ofertas
             List<Oferta> ofertasSubasta1 = new List<Oferta>
             {
-                new Oferta(150m, DateTime.Now.AddDays(-3), _usuarios[0]),
-                new Oferta(200m, DateTime.Now.AddDays(-1), _usuarios[1])
+                new Oferta(150m, DateTime.Parse("04-11-2021"), clientes[0]),
+                new Oferta(200m, DateTime.Parse("23-01-2024"), clientes[1])
             };
 
             List<Oferta> ofertasSubasta2 = new List<Oferta>
             {
-                new Oferta(300m, DateTime.Now.AddDays(-5), _usuarios[2]),
-                new Oferta(350m, DateTime.Now.AddDays(-2), _usuarios[3])
+                new Oferta(300m, DateTime.Parse("29-06-2019"), clientes[2]),
+                new Oferta(350m, DateTime.Parse("13-08-2020"), clientes[3]),
+                new Oferta(500m, DateTime.Parse("15-08-2020"), clientes[2])
             };
 
             // Crear 10 subastas y agregarlas al sistema utilizando el método AgregarPublicacion
-            AgregarPublicacion(new Subasta("Vuelta Ciclista", Estado.Abierta, DateTime.Now.AddDays(-8), null, 500m, articulos1, null, ofertasSubasta1, null));
-            AgregarPublicacion(new Subasta("Equipo de Camping", Estado.Abierta, DateTime.Now.AddDays(-1), null, 250m, articulos2, null, ofertasSubasta2, null));
-            AgregarPublicacion(new Subasta("Caza y Pesca", Estado.Abierta, DateTime.Now, null, 600m, articulos3, null, null, null));
-            AgregarPublicacion(new Subasta("Ropa de Montaña", Estado.Abierta, DateTime.Now, null, 350m, articulos4, null, new List<Oferta>(), null));
-            AgregarPublicacion(new Subasta("Equipamiento de Escalada", Estado.Abierta, DateTime.Now, null, 450m, articulos5, null, new List<Oferta>(), null));
-            AgregarPublicacion(new Subasta("Set de Viaje", Estado.Abierta, DateTime.Now, null, 200m, articulos6, null, new List<Oferta>(), null));
-            AgregarPublicacion(new Subasta("Camping de Lujo", Estado.Abierta, DateTime.Now, null, 700m, articulos7, null, new List<Oferta>(), null));
-            AgregarPublicacion(new Subasta("Aventura Extrema", Estado.Abierta, DateTime.Now, null, 800m, articulos8, null, new List<Oferta>(), null));
-            AgregarPublicacion(new Subasta("Mountain Bike", Estado.Abierta, DateTime.Now, null, 900m, articulos9, null, new List<Oferta>(), null));
-            AgregarPublicacion(new Subasta("Ropa para Esquí", Estado.Abierta, DateTime.Now, null, 550m, articulos10, null, new List<Oferta>(), null));
+            AgregarPublicacion(new Subasta("Vuelta Ciclista", Estado.Abierta, DateTime.Parse("02-11-2021"), null, 500m, articulos1, null, ofertasSubasta1, null));
+            AgregarPublicacion(new Subasta("Equipo de Camping", Estado.Abierta, DateTime.Parse("23-02-2019"), null, 250m, articulos2, null, ofertasSubasta2, null));
+            AgregarPublicacion(new Subasta("Caza y Pesca", Estado.Abierta, DateTime.Parse("03-02-2023"), null, 600m, articulos3, null, null, null));
+            AgregarPublicacion(new Subasta("Ropa de Montaña", Estado.Abierta, DateTime.Parse("18-03-2010"), null, 350m, articulos4, null, new List<Oferta>(), null));
+            AgregarPublicacion(new Subasta("Equipamiento de Escalada", Estado.Abierta, DateTime.Parse("02-12-2022"), null, 450m, articulos5, null, new List<Oferta>(), null));
+            AgregarPublicacion(new Subasta("Set de Viaje", Estado.Abierta, DateTime.Parse("03-09-2016"), null, 200m, articulos6, null, new List<Oferta>(), null));
+            AgregarPublicacion(new Subasta("Camping de Lujo", Estado.Abierta, DateTime.Parse("12-08-2021"), null, 700m, articulos7, null, new List<Oferta>(), null));
+            AgregarPublicacion(new Subasta("Aventura Extrema", Estado.Abierta, DateTime.Parse("27-08-2017"), null, 800m, articulos8, null, new List<Oferta>(), null));
+            AgregarPublicacion(new Subasta("Mountain Bike", Estado.Abierta, DateTime.Parse("23-04-2015"), null, 900m, articulos9, null, new List<Oferta>(), null));
+            AgregarPublicacion(new Subasta("Ropa para Esquí", Estado.Abierta, DateTime.Parse("15-05-2022"), null, 550m, articulos10, null, new List<Oferta>(), null));
         }
 
 
@@ -322,13 +326,11 @@
 
         public List<Publicacion> ListarPublicacionesEntreFechas(DateTime fechaInicio, DateTime fechaFinal)
         {
-            Console.Clear();
-            Console.WriteLine("-------------------------------\nEl resultado de la busqueda es:");
             List<Publicacion> listaPublicacionesFiltradas = new List<Publicacion>();
             foreach (Publicacion p in this._publicaciones)
             {
 
-                if (p.FechaPubliblicaion >= fechaInicio && p.FechaPubliblicaion <= fechaFinal)
+                if (p.FechaPublicacion >= fechaInicio && p.FechaPublicacion <= fechaFinal)
                 {
                     listaPublicacionesFiltradas.Add(p);
 

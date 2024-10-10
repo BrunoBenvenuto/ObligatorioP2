@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LogicaNegocio
+﻿namespace LogicaNegocio
 {
     public abstract class Publicacion
     {
@@ -41,7 +35,7 @@ namespace LogicaNegocio
             set { _estado = value; }
         }
 
-        public DateTime FechaPubliblicaion
+        public DateTime FechaPublicacion
         {
             get { return _fechaPublicacion; }
             set { _fechaPublicacion = value; }
@@ -110,7 +104,7 @@ namespace LogicaNegocio
             return " - Id: " + this.Id +
                 "\n - Nombre: " + this.Nombre +
                 "\n - Estado: " + this.Estado +
-                "\n - Fecha Publicacion: " + this.FechaPubliblicaion;
+                "\n - Fecha Publicacion: " + this.FechaPublicacion;
         }
     }
 }

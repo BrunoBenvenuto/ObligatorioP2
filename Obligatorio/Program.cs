@@ -1,6 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Collections.Generic;
-using LogicaNegocio;
+﻿using LogicaNegocio;
 
 namespace Obligatorio
 {
@@ -159,14 +157,11 @@ namespace Obligatorio
                     }
                     try
                     {
-
-                        List<Publicacion> lista = new List<Publicacion>();
-                        lista = sistema.ListarPublicacionesEntreFechas(fechaInicio, fechaFinal);
+                        List<Publicacion> lista = sistema.ListarPublicacionesEntreFechas(fechaInicio, fechaFinal);
 
                         if (lista.Count == 0)
                         {
                             Console.WriteLine("\nNo se encontraron resultados\nVuelve a intentarlo con nuevas fechas...");
-                            Console.ReadLine();
                         }
                         else
                         {
@@ -176,8 +171,8 @@ namespace Obligatorio
                                 Console.WriteLine("----------------------");
                             }
                                 Console.WriteLine("\n\nPreciona cualquier tecla para volver al menu");
-                                Console.ReadLine();
                         }
+                        Console.ReadLine();
                     }
                     catch (Exception e)
                     {
