@@ -1,13 +1,4 @@
-﻿using System.Text;
-using System.Threading.Tasks;
-
-using System.Text;
-using System.Threading.Tasks;
-
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LogicaNegocio
+﻿namespace LogicaNegocio
 {
     public class Oferta
     {
